@@ -384,46 +384,6 @@ timeout /t 1 1>nul
 	timeout /t 1 1>nul
 )
 
-:CURSED_
-if !CURSED! == 1 (
-	if "!LANGUAGE!"=="ru" (
-	cls
-	color 0C
-		echo.
-		echo.
-		echo.
-		echo.
-		echo.
-		echo 			    ВЫ ПРОПУСТИЛИ ПРОБЛЕМНЫЙ МОД В СПИСОК^?‼
-		echo.
-		echo 		...ЖИВИТЕ ДАЛЬШЕ В ПРОКЛЯТОМ МИРЕ, КОТОРЫЙ САМИ И СОЗДАЛИ‼
-		echo.
-		echo 			  ПОКАЙТЕСЬ ВО ИМЯ БОГА МАШИНЫ ПОКА НЕ ПОЗДНО‼
-		echo.
-		echo.
-		echo.
-		echo.
-	timeout /t 3 1>nul
-	) else (
-	cls
-	color 0C
-		echo.
-		echo.
-		echo.
-		echo.
-		echo 				  YOU SKIPPED A PROBLEMATIC MOD^?‼
-		echo.
-		echo 		...LIVE ON IN THE CURSED WORLD YOU YOURSELVES HAVE CREATED‼
-		echo.
-		echo 		  REPENT IN THE NAME OF THE OMNISSIAH WHILE YOU STILL CAN‼
-		echo.
-		echo.
-		echo.
-		echo.
-	timeout /t 3 1>nul
-	)
-)
-
 start mod_load_order.txt
 
 goto :EOF
@@ -529,9 +489,12 @@ REM ╟+ servo_friend										║
 REM ╟+ ├─servo_friend_audio_server_plugin				║
 REM ╟+ └─servo_friend_example_addon						║
 REM ╟+ extended_weapon_customization					║
-REM ╟+ ├─extended_weapon_customization_base_additions	║
-REM ╟+ ├─extended_weapon_customization_owo				║
-REM ╟+ └─extended_weapon_customization_syn_edits		║
+REM ╟+ │├─extended_weapon_customization_base_additions	║
+REM ╟+ │├─extended_weapon_customization_owo				║
+REM ╟+ │└─extended_weapon_customization_syn_edits		║
+REM ╟+ └─for_the_drip									║
+REM ╟+	 └─for_the_drip_extra							║
+REM ╟+ who_are_you										║
 REM ╚═══════════════════════════════════════════════════╝
 if exist "CharacterGrid" echo CharacterGrid>> mod_load_order.txt
 if exist "LogMeIn" echo LogMeIn>> mod_load_order.txt
@@ -566,6 +529,9 @@ if exist "extended_weapon_customization" echo extended_weapon_customization>> mo
 	if exist "extended_weapon_customization_base_additions" echo extended_weapon_customization_base_additions>> mod_load_order.txt
 	if exist "extended_weapon_customization_owo" echo extended_weapon_customization_owo>> mod_load_order.txt
 	if exist "extended_weapon_customization_syn_edits" echo extended_weapon_customization_syn_edits>> mod_load_order.txt
+	if exist "for_the_drip" echo for_the_drip>> mod_load_order.txt
+	if exist "for_the_drip_extra" echo for_the_drip_extra>> mod_load_order.txt
+if exist "who_are_you" echo who_are_you>> mod_load_order.txt
 
 goto :EOF
 
@@ -611,7 +577,9 @@ echo extended_weapon_customization>> exclude.tmp
 echo extended_weapon_customization_base_additions>> exclude.tmp
 echo extended_weapon_customization_owo>> exclude.tmp
 echo extended_weapon_customization_syn_edits>> exclude.tmp
-REM echo for_the_drip>> exclude.tmp
+echo for_the_drip>> exclude.tmp
+echo for_the_drip_extra>> exclude.tmp
+echo who_are_you>> exclude.tmp
 
 REM Используем файл для фильтрации
 for /f "tokens=*" %%i in ('dir /b /ad ^| findstr /iv /g:exclude.tmp') do (
@@ -780,7 +748,7 @@ set "OBSOLETE_LIST="
 set "FOUND_OBSOLETE_FOLDERS="
 REM ████░░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
 REM ████░░▒Список устаревших модов:▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
-set "OBSOLETE_MODS=ads_crosshair AimSensitivity ammo_med_markers barter_at_once barter_with_hadron book_finder CharWallets chest_markers CombatEvolved consistent_flamer_backpacks contracts_overlay CThruShields DarkCache DirectToHadron emote_wheel_fix EnemyAudioReplacer ENLocalizationFIX ENLocalizationFIXAIO ENLocalizationFIXBlessings ENLocalizationFIXCurios ENLocalizationFIXTalents ENLocalizationFIXTraits fancy_bots graphics_options "Height Changer" heretical_idol_marker holier_revenant IgnorePsykerGrenades material_markers ModificationIconColor MuteInBackground MutePerilSounds NoSkull OpenSteamProfile PenanceDetails PreferAuric PsykaniumDefaultDifficulty PsykerCriticalPerilQuiet RejectInvitesWhileInMission reroll_until_rarity RestoreRagdollInteraction RetainSelection reveal_blessings RULocalizationFIX RULocalizationFIXAchievements RULocalizationFIXBlessings RULocalizationFIXBlessnTalentsNames RULocalizationFIXCurios RULocalizationFIXEnemies RULocalizationFIXMenus RULocalizationFIXStores RULocalizationFIXTalents RULocalizationFIXTraits RULocalizationFIXTitles RULocalizationFIXWeaponnames x_Enhanced_RU_Localization settings_extension sorted_mission_grid SpaceToContinue SpectatorHUD TaintedDevices_markers TransparentShield TruePeril ui_extension weapon_customization weapon_customization_chains weapon_customization_mt_stuff weapon_customization_no_scope weapon_customization_owo weapon_customization_plugin weapon_customization_plugin_xsSythes weapon_customization_syn_edits which_book WhichMissions"
+set "OBSOLETE_MODS=ads_crosshair AimSensitivity ammo_med_markers barter_at_once barter_with_hadron book_finder CharWallets chest_markers CircumstanceFix CombatEvolved consistent_flamer_backpacks contracts_overlay CThruShields DarkCache DirectToHadron emote_wheel_fix EnemyAudioReplacer ENLocalizationFIX ENLocalizationFIXAIO ENLocalizationFIXBlessings ENLocalizationFIXCurios ENLocalizationFIXTalents ENLocalizationFIXTraits fancy_bots graphics_options "Height Changer" heretical_idol_marker holier_revenant IgnorePsykerGrenades material_markers ModificationIconColor MuteInBackground MutePerilSounds NoSkull OpenSteamProfile PenanceDetails PlasmaGunLagFix PreferAuric PsykaniumDefaultDifficulty PsykerCriticalPerilQuiet RejectInvitesWhileInMission reroll_until_rarity RestoreRagdollInteraction RetainSelection reveal_blessings RULocalizationFIX RULocalizationFIXAchievements RULocalizationFIXBlessings RULocalizationFIXBlessnTalentsNames RULocalizationFIXCurios RULocalizationFIXEnemies RULocalizationFIXMenus RULocalizationFIXStores RULocalizationFIXTalents RULocalizationFIXTraits RULocalizationFIXTitles RULocalizationFIXWeaponnames x_Enhanced_RU_Localization settings_extension sorted_mission_grid SpaceToContinue SpectatorHUD TaintedDevices_markers TransparentShield TruePeril ui_extension weapon_customization weapon_customization_chains weapon_customization_mt_stuff weapon_customization_no_scope weapon_customization_owo weapon_customization_plugin weapon_customization_plugin_xsSythes weapon_customization_syn_edits which_book WhichMissions"
 
 if "!LANGUAGE!"=="ru" (
 REM ████░░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
@@ -794,6 +762,7 @@ REM ████░░▒▓▓▓Русский▓▓▓▓▓▓▓▓▓▓�
 	set "book_finder_desc=Устарел. Закрыт в пользу Collectible Finder.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "CharWallets_desc=Устарел. Закрыт в пользу Character Screen Contracts.▓▓▓▓▓▓▓▓▒░░███████"
 	set "chest_markers_desc=Устарел. Часть мода Markers Improved All-In-One.▓▓▓▓▓▓▓▓▓▓▒░░███████"
+	set "CircumstanceFix_desc= Устарел, введено ФШ в игру.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "CombatEvolved_desc= Не обновляется.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "consistent_flamer_backpacks_desc=Устарел, введено ФШ в игру.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "contracts_overlay_desc=Устарел, введено ФШ в игру.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
@@ -820,6 +789,7 @@ REM ████░░▒▓▓▓Русский▓▓▓▓▓▓▓▓▓▓�
 	set "NoSkull_desc=Не обновляется. Используйте NumericUI вместо него.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "OpenSteamProfile_desc=Устарел. Закрыт в пользу Open Player Profile.▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PenanceDetails_desc=Устарел, введено ФШ в игру.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
+	set "PlasmaGunLagFix_desc=Устарел, исправлено ФШ.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PreferAuric_desc=Устарел.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PsykaniumDefaultDifficulty_desc=Устарел.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PsykerCriticalPerilQuiet_desc=Не обновляется.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
@@ -871,6 +841,7 @@ REM ████░░▒▓▓▓English▓▓▓▓▓▓▓▓▓▓▓▓▓
 	set "book_finder_desc=Deprecated. Closed in favor of Collectible Finder.▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "CharWallets_desc=Deprecated. Closed in favor of Character Screen Contracts.▓▓▒░░███████"
 	set "chest_markers_desc=Deprecated. Part of the Markers Improved AIO.▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
+	set "CircumstanceFix_desc= Deprecated, introduced into the game by FS.▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "CombatEvolved_desc= Not updating.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "consistent_flamer_backpacks_desc=Obsolete, introduced into the game by FS.▓▓▓▒░░███████"
 	set "contracts_overlay_desc=Obsolete, introduced into the game by FS.▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
@@ -897,6 +868,7 @@ REM ████░░▒▓▓▓English▓▓▓▓▓▓▓▓▓▓▓▓▓
 	set "NoSkull_desc=Not updating. Use Numeric UI.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "OpenSteamProfile_desc=Deprecated. Closed in favor of Open Player Profile.▓▓▓▓▒░░███████"
 	set "PenanceDetails_desc=Obsolete, introduced into the game by FS.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
+	set "PlasmaGunLagFix_desc=Obsolete, fixed by FS.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PreferAuric_desc=Obsolete.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PsykaniumDefaultDifficulty_desc=Obsolete.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
 	set "PsykerCriticalPerilQuiet_desc=Not updating.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████"
@@ -998,7 +970,6 @@ goto :EOF
 			If Errorlevel 1 (
 				set "OBSOLETE_FOUND=0"
 													call :LOG "OBSOLETE==C??? NO GOD‼ PLEASE NO‼ NOOOOOOOOOO‼‼‼"
-				set "CURSED=1"
 				goto :STEP_3A_CHECK_MALFORMED_MOD_FOLDERS
 			)
 
@@ -1070,7 +1041,6 @@ for /d %%f in (*-*-*-*-*) do (
 			If Errorlevel 1 (
 				set "MALFORMED_FOUND=0"
 													call :LOG "MALFORMED==C??? NO GOD‼ PLEASE NO‼ NOOOOOOOOOO‼‼‼"
-				set "CURSED=1"
 				goto :STEP_3B_CHECK_EMPTY_FOLDERS
 			)
 
@@ -1137,7 +1107,6 @@ goto :EOF
 			If Errorlevel 1 (
 				set "EMPTY_FOUND=0"
 													call :LOG "EMPTY==C??? NO GOD‼ PLEASE NO‼ NOOOOOOOOOO‼‼‼"
-				set "CURSED=1"
 				goto :STEP_4_CHECK_INCOMPATIBLE_MODS
 			)
 
@@ -1441,6 +1410,26 @@ if exist "BetterLoadouts\" if exist "more_characters_and_loadouts\" (
 	)
 	goto :EOF
 )
+		REM ████░░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓Simple Color Selector VS▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓└─Color Selection▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+if exist "simplecolorselector\" if exist "ColorSelection\" (
+	set "INCOMPATIBLE_FOUND=1"
+	set "MOD1=ColorSelection" && set "MOD1_Name=Color Selection"
+	set "MOD2=simplecolorselector" && set "MOD2_Name=Simple Color Selector"
+	if "!LANGUAGE!"=="ru" (
+						set "DESC1=«!MOD2_Name!» и «!MOD1_Name!» несовместимы‼▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+						set "DESC2=«!MOD2_Name!» имеет в себе функционал «!MOD1_Name!».▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+					  set "MOD1_Name2=Color Selection▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+					  set "MOD2_Name2=Simple Color Selector▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	) else (
+						set "DESC1='!MOD2_Name!' and '!MOD1_Name!' are incompatible‼▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+						set "DESC2='!MOD2_Name!' includes functionality of '!MOD1_Name!'.▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+						  set "MOD1_Name2=Color Selection▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+						  set "MOD2_Name2=Simple Color Selector▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	)
+	goto :EOF
+)
 
 goto :EOF
 
@@ -1512,7 +1501,6 @@ goto :EOF
 		If Errorlevel 1 (
 			set "INCOMPATIBLE_FOUND=0"
 													call :LOG "INCOMPATIBLE_FOUND==C??? NO GOD‼ PLEASE NO‼ NOOOOOOOOOO‼‼‼"
-			set "CURSED=1"
 			goto :STEP_5_CHECK_DEPENDENCIES
 		)
 
@@ -1545,9 +1533,11 @@ REM ╟+ servo_friend										║
 REM ╟+ ├─servo_friend_audio_server_plugin				║
 REM ╟+ └─servo_friend_example_addon						║
 REM ╟+ extended_weapon_customization					║
-REM ╟+ ├─extended_weapon_customization_base_additions	║
-REM ╟+ ├─extended_weapon_customization_owo				║
-REM ╟+ └─extended_weapon_customization_syn_edits		║
+REM ╟+ │├─extended_weapon_customization_base_additions	║
+REM ╟+ │├─extended_weapon_customization_owo				║
+REM ╟+ │└─extended_weapon_customization_syn_edits		║
+REM ╟+ └─for_the_drip									║
+REM ╟+	 └─for_the_drip_extra							║
 REM ╚═══════════════════════════════════════════════════╝
 
 		REM ███████████████████████████████████████████████████████████████████████████████████████████████
@@ -1825,9 +1815,11 @@ if exist "servo_friend_example_addon" if NOT exist "servo_friend" (
 )
 		REM ████░░▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
 		REM ████░░▒▓▓Extended Weapon Customization▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
-		REM ████░░▒▓▓├─Extended Weapon Customization Base Additions▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
-		REM ████░░▒▓▓├─Extended Weapon Customization OWO▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
-		REM ████░░▒▓▓└─Extended Weapon Customization Syn Edits▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓│├─Extended Weapon Customization Base Additions▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓│├─Extended Weapon Customization OWO▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓│└─Extended Weapon Customization Syn Edits▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓└─For the Drip▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
+		REM ████░░▒▓▓▓▓└─For the Drip Extra▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░███████
 if exist "extended_weapon_customization_base_additions" if NOT exist "extended_weapon_customization" (
 	set "DEPENDENCY_ERROR=1"
 												call :LOG "Dependency error: Extended Weapon Customization Base Additions requires Extended Weapon Customization"
@@ -1883,6 +1875,44 @@ if exist "extended_weapon_customization_syn_edits" if NOT exist "extended_weapon
 												set "MOD_Dep_Name2=!MOD_Dep_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
 	)
 	set "START_REQMOD_PAGE=start https://backup158.github.io/DarktideWeaponCustomizationOwO/"
+	call :SHOW_SINGLE_DEPENDENCY_ERROR
+)
+if exist "for_the_drip" if NOT exist "extended_weapon_customization" (
+	set "DEPENDENCY_ERROR=1"
+												call :LOG "Dependency error: For the Drip requires Extended Weapon Customization"
+	set "MOD_Dep=for_the_drip" && set "MOD_Dep_Name=For the Drip"
+	set "MOD_Req=extended_weapon_customization" && set "MOD_Req_Name=Extended Weapon Customization"
+	if "!LANGUAGE!"=="ru" (
+				  set "DESC_Dep1=«!MOD_Dep_Name!» требует установки «!MOD_Req_Name!». Установите▓▒░░▓▓▒░░░░"
+	set "DESC_Dep2=его или удалите мод «!MOD_Dep_Name!».▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+										set "MOD_Req_Name2=!MOD_Req_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ВЫХОД‼▓▒░░▓▓▒░░░░"
+				 set "MOD_Dep_Name2=!MOD_Dep_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	) else (
+				   set "DESC_Dep1='!MOD_Dep_Name!' requires the '!MOD_Req_Name!' mod. Install▓▓▓▓▒░░▓▓▒░░░░"
+				   set "DESC_Dep2='!MOD_Req_Name!' or remove '!MOD_Dep_Name!'.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+									  set "MOD_Req_Name2=!MOD_Req_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓EXIT‼▓▒░░▓▓▒░░░░"
+					 set "MOD_Dep_Name2=!MOD_Dep_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	)
+	set "START_REQMOD_PAGE=start https://backup158.github.io/DarktideWeaponCustomizationOwO/"
+	call :SHOW_SINGLE_DEPENDENCY_ERROR
+)
+if exist "for_the_drip_extra" if NOT exist "for_the_drip" (
+	set "DEPENDENCY_ERROR=1"
+												call :LOG "Dependency error: For the Drip Extra requires For the Drip"
+	set "MOD_Dep=for_the_drip_extra" && set "MOD_Dep_Name=For the Drip Extra"
+	set "MOD_Req=for_the_drip" && set "MOD_Req_Name=For the Drip"
+	if "!LANGUAGE!"=="ru" (
+		set "DESC_Dep1=«!MOD_Dep_Name!» требует установки «!MOD_Req_Name!». Установите его или▓▓▓▒░░▓▓▒░░░░"
+		  set "DESC_Dep2=удалите мод «!MOD_Dep_Name!».▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+					   set "MOD_Req_Name2=!MOD_Req_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ВЫХОД‼▓▒░░▓▓▒░░░░"
+					   set "MOD_Dep_Name2=!MOD_Dep_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	) else (
+	  set "DESC_Dep1='!MOD_Dep_Name!' requires the '!MOD_Req_Name!' mod. Install '!MOD_Req_Name!'▒░░▓▓▒░░░░"
+		  set "DESC_Dep2=or remove '!MOD_Dep_Name!'.▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+					 set "MOD_Req_Name2=!MOD_Req_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓EXIT‼▓▒░░▓▓▒░░░░"
+						   set "MOD_Dep_Name2=!MOD_Dep_Name!▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓▒░░░░"
+	)
+	set "START_REQMOD_PAGE=start https://github.com/Adspartan/For_the_Drip/releases"
 	call :SHOW_SINGLE_DEPENDENCY_ERROR
 )
 
@@ -1949,7 +1979,6 @@ goto :EOF
 													call :LOG "Open !MOD_Req_Name2! mod page"
 		If Errorlevel 1 (
 			set "DEPENDENCY_ERROR=0"
-			set "CURSED=1"
 													call :LOG "DEPENDENCY==C??? NO GOD‼ PLEASE NO‼ NOOOOOOOOOO‼‼‼"
 			goto :STEP_6_CREATE_MOD_LIST
 		)
